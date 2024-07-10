@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -172,14 +173,56 @@ Criminal inputCriminalData() {
     cout << "Enter name of the criminal: ";
     getline(cin >> ws, name); // Use getline to handle spaces in name
 
-    cout << "Enter age of the criminal: ";
-    cin >> age;
+    //Age
+    while (true) {
+        cout << "Enter age of the criminal: ";
+        cin >> age;
 
-    cout << "Enter height of the criminal (in cm): ";
-    cin >> height;
+        if (cin.fail()) {
+            cin.clear(); // clear the error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+            cout << "Try Again" << endl;
+        } else if(age<=10||age>=140) {
+            cout << "Try again "<<endl;
+        }
+        else {
+            break; // input is valid, exit the loop
+        }
+    }
 
-    cout << "Enter number of criminal records: ";
-    cin >> criminalRecords;
+    //Height
+    while (true) {
+        cout << "Enter height of the criminal (in cm): ";
+        cin >> height;
+
+        if (cin.fail()) {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Try Again" << endl;
+        } else if(height<=90||height>=300) {
+            cout << "Try again "<<endl;
+        }
+        else {
+            break; 
+        }
+    }
+
+    //Criminal Records
+    while (true) {
+        cout << "Enter number of criminal records: ";
+        cin >> criminalRecords;
+
+        if (cin.fail()) {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Try Again" << endl;
+        } else if(criminalRecords<=0) {
+            cout << "Try again "<<endl;
+        }
+        else {
+            break; 
+        }
+    }
 
     cin.ignore(); // Clear input buffer
 
