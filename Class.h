@@ -1,143 +1,88 @@
-#include <iostream>
+#ifndef CLASS_H
+#define CLASS_H
+
 #include <string>
-#include <queue>
 
-using namespace std;
-
-// Class representing a crime report
-class CrimeReport {
+// Class to represent a Criminal
+class Criminal {
 public:
-    string type;
-    int severity;
-    string location;
+    // Constructor with default values
+    Criminal(const std::string& name = "Unknown", int age = 0, double height = 0.0,
+             int criminalRecords = 0, const std::string& crimeType = "Unknown");
 
-    CrimeReport(string t, int s, string l) : type(t), severity(s), location(l) {}
+    // Accessor methods
+    const std::string& getName() const;
+    int getAge() const;
+    double getHeight() const;
+    int getCriminalRecords() const;
+    const std::string& getCrimeType() const;
+
+    // Setter methods
+    void setName(const std::string& name);
+    void setAge(int age);
+    void setHeight(double height);
+    void setCriminalRecords(int criminalRecords);
+    void setCrimeType(const std::string& crimeType);
+
+private:
+    // Member variables
+    std::string name;
+    int age;
+    double height;
+    int criminalRecords;
+    std::string crimeType;  // New member variable for type of crime committed
 };
 
-// Class representing a node in the linked list
-struct Node {
-    CrimeReport report;
+// Class to represent a node in a LinkedList
+class Node {
+public:
+    Criminal data;
     Node* next;
-    Node(CrimeReport r) : report(r), next(nullptr) {}
+
+    Node(const Criminal& criminal);
 };
 
-// Class representing a crime database that contains multiple reports
-class CrimeDatabase {
+// LinkedList class
+class LinkedList {
 private:
     Node* head;
 
 public:
-    CrimeDatabase() : head(nullptr) {}
-    void addReport(CrimeReport report);
-    void sortReportsBubble();
-    void sortReportsInsertion();
-    void sortReportsSelection();
-    void displayReports();
+    LinkedList();
+    ~LinkedList();
+
+    // Function to add a criminal to the linked list
+    void addCriminal(const Criminal& criminal);
+
+    // Function to print all criminals in the linked list
+    void printCriminals() const;
+
+    // Function to clear the linked list
+    void clear();
+
+    // Getter for head pointer (useful for accessing nodes)
+    Node* getHead() const;
 };
 
-// Method to add a report to the linked list
-void CrimeDatabase::addReport(CrimeReport report) {
-    Node* newNode = new Node(report);
-    newNode->next = head;
-    head = newNode;
-}
-
-// Method to display reports in the linked list
-void CrimeDatabase::displayReports() {
-    Node* current = head;
-    while (current != nullptr) {
-        cout << "Type: " << current->report.type << ", Severity: " << current->report.severity << ", Location: " << current->report.location << endl;
-        current = current->next;
-    }
-}
-
-// Sorting algorithms implementations
-
-void CrimeDatabase::sortReportsBubble() {
-    if (!head || !head->next) return;
-    bool swapped;
-    do {
-        swapped = false;
-        Node* current = head;
-        while (current->next) {
-            if (current->report.severity > current->next->report.severity) {
-                swap(current->report, current->next->report);
-                swapped = true;
-            }
-            current = current->next;
-        }
-    } while (swapped);
-}
-
-void CrimeDatabase::sortReportsInsertion() {
-    if (!head || !head->next) return;
-    Node* sorted = nullptr;
-    Node* current = head;
-    while (current) {
-        Node* next = current->next;
-        if (!sorted || sorted->report.severity >= current->report.severity) {
-            current->next = sorted;
-            sorted = current;
-        } else {
-            Node* temp = sorted;
-            while (temp->next && temp->next->report.severity < current->report.severity) {
-                temp = temp->next;
-            }
-            current->next = temp->next;
-            temp->next = current;
-        }
-        current = next;
-    }
-    head = sorted;
-}
-
-void CrimeDatabase::sortReportsSelection() {
-    if (!head || !head->next) return;
-    for (Node* i = head; i && i->next; i = i->next) {
-        Node* min = i;
-        for (Node* j = i->next; j; j = j->next) {
-            if (j->report.severity < min->report.severity) {
-                min = j;
-            }
-        }
-        swap(i->report, min->report);
-    }
-}
-
-// Class representing the crime management system
-class CrimeManagementSystem {
+// Class to manage the database of criminals
+class Database {
 private:
-    queue<CrimeDatabase> databases;
+    LinkedList criminalList;
 
 public:
-    void addDatabase(CrimeDatabase database);
-    void sortAllDatabases();
-    void displayAllDatabases();
+    void addCriminal(const Criminal& criminal);
+    void printCriminals() const;
+    void clearDatabase();
+    LinkedList* getCriminalList();
 };
 
-// Method to add a database to the system
-void CrimeManagementSystem::addDatabase(CrimeDatabase database) {
-    databases.push(database);
-}
+// Comparator functions for sorting using LinkedList
+bool compareByName(Node* a, Node* b);
+bool compareByAge(Node* a, Node* b);
+bool compareByHeight(Node* a, Node* b);
+bool compareByCriminalRecords(Node* a, Node* b);
 
-// Method to sort all reports in all databases
-void CrimeManagementSystem::sortAllDatabases() {
-    queue<CrimeDatabase> tempQueue;
-    while (!databases.empty()) {
-        CrimeDatabase database = databases.front();
-        databases.pop();
-        database.sortReportsBubble();  // Example: using bubble sort
-        tempQueue.push(database);
-    }
-    databases = tempQueue;
-}
+// Function to input data for a criminal
+Criminal inputCriminalData();
 
-// Method to display all reports in all databases
-void CrimeManagementSystem::displayAllDatabases() {
-    queue<CrimeDatabase> tempQueue = databases;
-    while (!tempQueue.empty()) {
-        CrimeDatabase database = tempQueue.front();
-        tempQueue.pop();
-        database.displayReports();
-    }
-}
+#endif // CLASS_H
