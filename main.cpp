@@ -95,10 +95,12 @@ public:
     void printCriminals() const {
         Node* current = head;
         while (current != nullptr) {
-            cout << "Name: " << current->data.getName() << ", Age: " << current->data.getAge()
-                << ", Height: " << current->data.getHeight()
-                << ", Criminal Records: " << current->data.getCriminalRecords()
-                << ", Crime Type: " << current->data.getCrimeType() << endl;
+            cout << "Name: " << current->data.getName() << endl;
+            cout << "Age: " << current->data.getAge() << endl;
+            cout << "Height: " << current->data.getHeight() << endl;
+            cout << "Criminal Records: " << current->data.getCriminalRecords() << endl;
+            cout << "Crime Type: " << current->data.getCrimeType() << endl;
+            cout << "**********************************" << endl;
             current = current->next;
         }
         cout << endl;
@@ -131,7 +133,9 @@ public:
     }
 
     void printCriminals() const {
+        cout << " " << endl;
         cout << "Printing Criminals in the Database:" << endl;
+        cout << "**********************************" << endl;
         criminalList.printCriminals();
     }
 
@@ -237,13 +241,37 @@ Criminal inputCriminalData() {
 int main() {
     Database criminalDatabase; // Database object to manage criminals
 
-        Criminal inmate01;
+    Criminal inmate01;
     inmate01.setName("Somchai");
     inmate01.setAge(36);
-    inmate01.setHeight(195);
-    inmate01.setCriminalRecords(5);
+    inmate01.setHeight(199);
+    inmate01.setCriminalRecords(99);
     inmate01.setCrimeType("Sexual Harassment");
     criminalDatabase.addCriminal(inmate01);
+
+    Criminal inmate02;
+    inmate02.setName("Somying");
+    inmate02.setAge(55);
+    inmate02.setHeight(155);
+    inmate02.setCriminalRecords(5);
+    inmate02.setCrimeType("Cybercrime");
+    criminalDatabase.addCriminal(inmate02);
+
+    Criminal inmate03;
+    inmate03.setName("Somkiat");
+    inmate03.setAge(18);
+    inmate03.setHeight(171);
+    inmate03.setCriminalRecords(2);
+    inmate03.setCrimeType("Hate Crime");
+    criminalDatabase.addCriminal(inmate03);
+
+    Criminal inmate04;
+    inmate04.setName("Somnamnha");
+    inmate04.setAge(12);
+    inmate04.setHeight(162);
+    inmate04.setCriminalRecords(5);
+    inmate04.setCrimeType("Murder");
+    criminalDatabase.addCriminal(inmate04);
 
     int choice;
 
