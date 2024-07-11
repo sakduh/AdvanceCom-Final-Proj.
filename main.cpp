@@ -181,9 +181,9 @@ Criminal inputCriminalData() {
         if (cin.fail()) {
             cin.clear(); // clear the error flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
-            cout << "Try Again" << endl;
+            cout << "Try again, do not use letter!" << endl;
         } else if(age<=10||age>=140) {
-            cout << "Try again "<<endl;
+            cout << "Try again, invalid age! "<<endl;
         }
         else {
             break; // input is valid, exit the loop
@@ -198,9 +198,9 @@ Criminal inputCriminalData() {
         if (cin.fail()) {
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            cout << "Try Again" << endl;
+            cout << "Try again, do not use letter!" << endl;
         } else if(height<=90||height>=300) {
-            cout << "Try again "<<endl;
+            cout << "Try again, invalid height! "<<endl;
         }
         else {
             break; 
@@ -215,9 +215,9 @@ Criminal inputCriminalData() {
         if (cin.fail()) {
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            cout << "Try Again" << endl;
+            cout << "Try again, do not use letter!" << endl;
         } else if(criminalRecords<=0) {
-            cout << "Try again "<<endl;
+            cout << "Try again, record cannot be lower than 1!"<<endl;
         }
         else {
             break; 
