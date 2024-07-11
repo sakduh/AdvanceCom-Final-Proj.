@@ -313,12 +313,15 @@ int main() {
                     current = current->next;
                 }
                 sort(tempVec.begin(), tempVec.end(), compareByName);
-                cout << "Sorted by Name:" << endl;
+                cout << "Sorted by Name:" << endl
+                << "**********************************" << endl;
                 for (Node* node : tempVec) {
-                    cout << "Name: " << node->data.getName() << ", Age: " << node->data.getAge()
-                         << ", Height: " << node->data.getHeight()
-                         << ", Criminal Records: " << node->data.getCriminalRecords()
-                         << ", Crime Type: " << node->data.getCrimeType() << endl;
+                    cout << "Name: " << node->data.getName() 
+                    << "Age: " << node->data.getAge()
+                    << "Height: " << node->data.getHeight() << endl
+                    << "Criminal Records: " << node->data.getCriminalRecords() << endl
+                    << "Crime Type: " << node->data.getCrimeType() << endl
+                    << "**********************************" << endl;
                 }
                 cout << endl;
                 break;
@@ -333,12 +336,15 @@ int main() {
                     current = current->next;
                 }
                 sort(tempVec.begin(), tempVec.end(), compareByAge);
-                cout << "Sorted by Age:" << endl;
+                cout << "Sorted by Age:" << endl
+                << "**********************************" << endl;
                 for (Node* node : tempVec) {
-                    cout << "Name: " << node->data.getName() << ", Age: " << node->data.getAge()
-                         << ", Height: " << node->data.getHeight()
-                         << ", Criminal Records: " << node->data.getCriminalRecords()
-                         << ", Crime Type: " << node->data.getCrimeType() << endl;
+                    cout << "Name: " << node->data.getName() << endl
+                    << "Age: " << node->data.getAge() << endl
+                    << "Height: " << node->data.getHeight() << endl
+                    << "Criminal Records: " << node->data.getCriminalRecords() << endl
+                    << "Crime Type: " << node->data.getCrimeType() << endl
+                    << "**********************************" << endl;
                 }
                 cout << endl;
                 break;
@@ -353,12 +359,15 @@ int main() {
                     current = current->next;
                 }
                 sort(tempVec.begin(), tempVec.end(), compareByHeight);
-                cout << "Sorted by Height:" << endl;
+                cout << "Sorted by Height:" << endl
+                << "**********************************" << endl;
                 for (Node* node : tempVec) {
-                    cout << "Name: " << node->data.getName() << ", Age: " << node->data.getAge()
-                         << ", Height: " << node->data.getHeight()
-                         << ", Criminal Records: " << node->data.getCriminalRecords()
-                         << ", Crime Type: " << node->data.getCrimeType() << endl;
+                    cout << "Name: " << node->data.getName() << endl
+                    << ", Age: " << node->data.getAge() << endl
+                    << ", Height: " << node->data.getHeight() << endl
+                    << ", Criminal Records: " << node->data.getCriminalRecords() << endl
+                    << ", Crime Type: " << node->data.getCrimeType() << endl
+                    << "**********************************" << endl;
                 }
                 cout << endl;
                 break;
@@ -373,12 +382,15 @@ int main() {
                     current = current->next;
                 }
                 sort(tempVec.begin(), tempVec.end(), compareByCriminalRecords);
-                cout << "Sorted by Criminal Records:" << endl;
+                cout << "Sorted by Criminal Records:" << endl
+                << "**********************************" << endl;
                 for (Node* node : tempVec) {
-                    cout << "Name: " << node->data.getName() << ", Age: " << node->data.getAge()
-                         << ", Height: " << node->data.getHeight()
-                         << ", Criminal Records: " << node->data.getCriminalRecords()
-                         << ", Crime Type: " << node->data.getCrimeType() << endl;
+                    cout << "Name: " << node->data.getName() << endl
+                    << "Age: " << node->data.getAge() << endl
+                    << "Height: " << node->data.getHeight() << endl
+                    << "Criminal Records: " << node->data.getCriminalRecords() << endl
+                    << "Crime Type: " << node->data.getCrimeType() << endl
+                    << "**********************************" << endl;
                 }
                 cout << endl;
                 break;
