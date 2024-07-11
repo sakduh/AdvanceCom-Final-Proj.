@@ -237,10 +237,19 @@ Criminal inputCriminalData() {
 int main() {
     Database criminalDatabase; // Database object to manage criminals
 
+        Criminal inmate01;
+    inmate01.setName("Somchai");
+    inmate01.setAge(36);
+    inmate01.setHeight(195);
+    inmate01.setCriminalRecords(5);
+    inmate01.setCrimeType("Sexual Harassment");
+    criminalDatabase.addCriminal(inmate01);
+
     int choice;
 
     do {
         // Prompt user for choice
+        cout << "-------------------------------------------------" << endl;
         cout << "Choose an option to access the Criminal Database:" << endl;
         cout << "1. Add a criminal" << endl;
         cout << "2. Print all criminals" << endl;
@@ -250,6 +259,7 @@ int main() {
         cout << "6. Sort by Criminal Records" << endl;
         cout << "7. Clear Database" << endl;
         cout << "0. Exit" << endl;
+        cout << "------------------------------------------------" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
