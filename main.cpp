@@ -316,8 +316,8 @@ int main() {
                 cout << "Sorted by Name:" << endl
                 << "**********************************" << endl;
                 for (Node* node : tempVec) {
-                    cout << "Name: " << node->data.getName() 
-                    << "Age: " << node->data.getAge()
+                    cout << "Name: " << node->data.getName() << endl
+                    << "Age: " << node->data.getAge() << endl
                     << "Height: " << node->data.getHeight() << endl
                     << "Criminal Records: " << node->data.getCriminalRecords() << endl
                     << "Crime Type: " << node->data.getCrimeType() << endl
